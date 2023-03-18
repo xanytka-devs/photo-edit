@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="XPhotos.Controls.LayerManagerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XPhotos.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Border Background="Gray" VerticalAlignment="Top" Height="50"
+                Name="miniLayerManager">
+            <Grid>
+                <ComboBox Name="layerOverlayMode" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                          Width="180" Height="30" Margin="10, 0, 0, 0">
+                    <ComboBoxItem Content="Normal"/>
+                    <ComboBoxItem Content="Overlap"/>
+                    <ComboBoxItem Content="Multiply"/>
+                    <ComboBoxItem Content="Divide"/>
+                    <ComboBoxItem Content="Lightening"/>
+                    <ComboBoxItem Content="Darkening"/>
+                </ComboBox>
+                <TextBox Name="layerVisibility" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                          Width="60" Height="30" Margin="0, 0, 10, 0"/>
+            </Grid>
+        </Border>
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"
+                  Name="layersSV" Margin="0, 50, 0, 0">
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>

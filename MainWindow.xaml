@@ -1,0 +1,63 @@
+﻿<Window x:Class="XPhotos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XPhotos"
+        mc:Ignorable="d"
+        Title="XPhotos" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource XPhotosWindow}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="550*"/>
+        </Grid.RowDefinitions>
+        <GridSplitter Grid.Row="0" Background="{x:Static local:ThemeManager.LighterSelectBrush}"
+                      Grid.ColumnSpan="2" Height="1.5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
+        <GridSplitter Grid.RowSpan="2" VerticalAlignment="Stretch" Background="{x:Static local:ThemeManager.LighterSelectBrush}" Width="1.5"/>
+        <!--#region MainAreas-->
+        <TabControl Grid.Row="1" Name="prjView" DragDrop.Drop="ForcePrjOpen" AllowDrop="True"/>
+        <Border>
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <MenuItem Click="ContextButton_Click" x:Name="FileButton">
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="File"/>
+                            </StackPanel>
+                        </MenuItem.Header>
+                        <MenuItem.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Create"/>
+                                <MenuItem Header="Open" Click="OpenBtn_Click"/>
+                                <MenuItem Header="Export"/>
+                                <MenuItem Header="Export to PNG"/>
+                                <MenuItem Header="Save"/>
+                            </ContextMenu>
+                        </MenuItem.ContextMenu>
+                    </MenuItem>
+                    <MenuItem Click="ContextButton_Click" x:Name="EditButton">
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Edit"/>
+                            </StackPanel>
+                        </MenuItem.Header>
+                        <MenuItem.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Settings"/>
+                                <MenuItem Header="Hue/Saturation"/>
+                                <MenuItem Header="Lightness"/>
+                            </ContextMenu>
+                        </MenuItem.ContextMenu>
+                    </MenuItem>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!--#endregion MainAreas-->
+    </Grid>
+</Window>
